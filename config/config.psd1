@@ -1,54 +1,54 @@
 ﻿@{
 vmware =@(
     @{
-    vcenter='vc-03.vcorp.local'
+    vcenter='10.237.198.11'
     account='administrator@vsphere.local'
   }
 ) #END VMWARE
 
 datadomain =@(
     @{
-    esxi ='pesx-01.vcorp.local'
-    datastore ='XIO-DS1'
-    folder = 'Automation'
-    name = 'auto-ddve-01'
-    domain = 'vcorp.local'
-    ip = '192.168.3.211'
-    netmask = '255.255.252.0'
-    ip1 = '192.168.3.216'
-    netmask1 = '255.255.252.0'
-    gateway = '192.168.1.250'
-    dns1 = '192.168.1.11'
-    dns2 = '192.168.1.12'
-    vswitch = 'VM Network'
-    vswitch1 = 'VM Network'
+    esxi ='10.237.198.101'
+    datastore ='production_ds01'
+    folder = 'Tanzu'
+    name = 'ddve-test'
+    domain = 'paclabs.se.lab.emc.com'
+    ip = '10.237.198.36'
+    netmask = '255.255.255.0'
+    ip1 = '10.237.198.37'
+    netmask1 = '255.255.255.0'
+    gateway = '10.237.198.1'
+    dns1 = '10.237.198.254'
+    dns2 = '10.201.16.29'
+    vswitch = 'pg_344'
+    vswitch1 = 'pg_344'
     vdisksize = 500
     vdisktype = 'Thin'
     account = 'sysadmin'
     oldpwd='changeme'
-    ova = 'D:\software\ddve-7.4.0.5-671629.ova'
+    ova = './ddve-7.4.0.5-671629.ova'
   }
   ) #END DATADOMAIN
   
 powerprotect =@(
         @{
         api = 'v2'
-        esxi ='pesx-01.vcorp.local'
-        datastore ='XIO-DS1'
-        folder = 'Automation'
-        name = 'auto-ppdm-01'
-        domain = 'vcorp.local'
-        ip = '192.168.3.214'
-        netmask = '255.255.252.0'
-        gateway = '192.168.1.250'
-        dns = @('192.168.1.11','192.168.1.12')
-        ntp = @('192.168.1.11','192.168.1.12')
-        vswitch = 'VM Network'
+        esxi ='10.237.198.101'
+        datastore ='production_ds01'
+        folder = 'Tanzu'
+        name = 'ppdm-test'
+        domain = 'paclabs.se.lab.emc.com'
+        ip = '10.237.198.35'
+        netmask = '255.255.255.0'
+        gateway = '10.237.198.1'
+        dns = @('10.237.198.254','10.201.16.29')
+        ntp = @('10.254.140.49','64.113.44.54')
+        vswitch = 'pg_344'
         vdisktype = 'Thin'
         account = 'admin'
         oldpwd='admin'
         timezone ='US/Central - Central Standard Time'
-        ova = 'D:\software\dellemc-ppdm-sw-19.6.0-7.ova'
+        ova = './dellemc-ppdm-sw-19.6.0-7.ova'
       }
     ) #END POWERPROTECT
 }
